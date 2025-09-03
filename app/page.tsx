@@ -1,10 +1,11 @@
 import React from 'react'
 
+import Hero from '@/components/Hero/Hero'
 
 const Home = () => {
   return (
     <main>
-      hello this is to check a new branch
+      <Hero />
     </main>
   )
 }

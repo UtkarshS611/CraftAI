@@ -33,7 +33,7 @@ const Header = () => {
     return (
         <section className="py-4">
             <div className="w-full">
-                <nav className="flex items-center justify-between">
+                <nav className="flex items-center justify-between relative">
                     <Link
                         href="/"
                         className="flex items-center gap-2"
@@ -48,7 +48,7 @@ const Header = () => {
                             Craft<span className="text-primary">AI</span>
                         </span>
                     </Link>
-                    <NavigationMenu className="hidden lg:block">
+                    <NavigationMenu className="hidden lg:block absolute left-1/2 -translate-x-1/2">
                         <NavigationMenuList>
                             {navigationLinks.map((link, index) => (
                                 <NavigationMenuItem key={index}>
