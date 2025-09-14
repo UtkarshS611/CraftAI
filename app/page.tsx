@@ -1,11 +1,9 @@
-import Navbar from "@/components/Navbar/Navbar";
-import Hero from "@/components/Hero/Hero";
+import HomePage from "./(routes)/home/page";
 
-export default function HomePage() {
+export default function MainPage() {
   return (
     <div>
-      <Navbar />
-      <Hero />
+      <HomePage />
     </div>
   );
 }

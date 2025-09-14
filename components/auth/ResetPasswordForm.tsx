@@ -21,40 +21,57 @@ export default function ResetPasswordForm() {
     });
 
     const data = await response.json();
-    if (response.ok) setMessage("Password reset successfully!");
-    else setMessage(data.message || "Reset failed.");
+    if (response.ok) setMessage("✅ Password reset successfully!");
+    else setMessage(data.message || "❌ Reset failed.");
   };
 
   return (
-    <div className="w-full max-w-md bg-white p-10 shadow-xl rounded-3xl">
-      <h2 className="text-2xl font-bold text-center text-indigo-700 mb-6">Reset Password</h2>
-      <form className="space-y-5" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-indigo-500"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="New Password"
-          value={formData.password}
-          onChange={handleChange}
-          className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-indigo-500"
-          required
-        />
-        <button
-          type="submit"
-          className="w-full py-4 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition"
-        >
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
+      <div className="w-full max-w-md bg-white/90 p-10 shadow-2xl rounded-3xl backdrop-blur-sm">
+        <h2 className="text-3xl font-bold text-center text-indigo-700 mb-8">
           Reset Password
-        </button>
-      </form>
-      {message && <p className="text-center mt-4 text-red-600">{message}</p>}
+        </h2>
+
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="New Password"
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+            required
+          />
+
+          <button
+            type="submit"
+            className="w-full py-4 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition transform hover:scale-[1.02]"
+          >
+            Reset Password
+          </button>
+        </form>
+
+        {message && (
+          <p
+            className={`text-center mt-6 font-medium ${
+              message.includes("success")
+                ? "text-green-600"
+                : "text-red-600"
+            }`}
+          >
+            {message}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
