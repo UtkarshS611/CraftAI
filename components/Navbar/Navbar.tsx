@@ -20,28 +20,28 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <img src="/logo.png" alt="Logo" className="h-10 w-10" />
-            <span className="font-bold text-xl md:text-2xl text-gray-800">
-              CraftAI
+          <Link href="/" className="flex items-center space-x-3">
+            <img src="/craftai-logo.svg" alt="CraftAI Logo" className="h-10 w-10" />
+            <span className="font-bold text-2xl text-gray-800 tracking-wide">
+              Craft<span className="text-indigo-600">AI</span>
             </span>
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex space-x-6 items-center text-gray-700 font-medium">
+          <div className="hidden md:flex space-x-8 items-center font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="relative px-1 py-2 text-gray-700 hover:text-blue-500 transition-colors"
+                className="relative group text-gray-700 hover:text-indigo-600 transition"
               >
                 {link.name}
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </div>
@@ -49,18 +49,18 @@ export default function Navbar() {
           {/* Search Bar */}
           <form
             onSubmit={handleSearch}
-            className="hidden md:flex items-center border border-gray-300 rounded-full overflow-hidden bg-gray-50"
+            className="hidden md:flex items-center border border-gray-300 rounded-full overflow-hidden bg-gray-50 shadow-sm"
           >
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search crafts or artisans"
-              className="px-3 py-2 outline-none bg-transparent text-gray-700 placeholder-gray-400"
+              className="px-3 py-2 outline-none bg-transparent text-gray-700 placeholder-gray-400 w-56"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white font-medium rounded-r-full hover:bg-blue-600 transition-colors"
+              className="px-5 py-2 bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-medium rounded-r-full hover:from-indigo-600 hover:to-blue-700 transition-colors"
             >
               Search
             </button>
@@ -70,13 +70,13 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-4">
             <Link
               href="/login"
-              className="px-5 py-2 border border-gray-400 text-gray-700 rounded-full font-medium hover:bg-gray-100 transition-colors"
+              className="px-5 py-2 border border-gray-300 text-gray-700 rounded-full font-medium hover:bg-gray-100 transition"
             >
               Login
             </Link>
             <Link
               href="/signup"
-              className="px-5 py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-full font-medium hover:from-blue-500 hover:to-blue-700 transition-colors"
+              className="px-5 py-2 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-full font-semibold hover:from-indigo-600 hover:to-blue-700 transition"
             >
               Signup
             </Link>
@@ -108,25 +108,25 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden mt-4 flex flex-col space-y-2 text-center">
+          <div className="md:hidden mt-4 flex flex-col space-y-3 text-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-gray-700 font-medium bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                className="px-4 py-2 text-gray-700 font-medium bg-gray-100 rounded-full hover:bg-gray-200 transition"
               >
                 {link.name}
               </Link>
             ))}
             <Link
               href="/login"
-              className="px-4 py-2 text-gray-700 font-medium border border-gray-400 rounded-full hover:bg-gray-100 transition-colors"
+              className="px-4 py-2 text-gray-700 font-medium border border-gray-300 rounded-full hover:bg-gray-100 transition"
             >
               Login
             </Link>
             <Link
               href="/signup"
-              className="px-4 py-2 text-white font-medium bg-gradient-to-r from-blue-400 to-blue-600 rounded-full hover:from-blue-500 hover:to-blue-700 transition-colors"
+              className="px-4 py-2 text-white font-medium bg-gradient-to-r from-indigo-500 to-blue-600 rounded-full hover:from-indigo-600 hover:to-blue-700 transition"
             >
               Signup
             </Link>
